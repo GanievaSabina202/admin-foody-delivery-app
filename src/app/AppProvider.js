@@ -8,23 +8,27 @@ import Sidebar from '../components/Sidebar'
 import styled from 'styled-components'
 import { ThemeProvider } from "styled-components";
 import { theme } from '../assets/styles/theme'
+import { Provider } from 'react-redux'
+import { store } from '../store'
 
 export const AppProvider = ({ children }) => {
     return (
-        <Router>
-            <ThemeProvider theme={theme}>
-                <GlobalStyle />
-                <Container>
-                    <Navbar />
-                    <AppDiv>
-                        <Sidebar />
-                        <RouteContainer>
-                            {children}
-                        </RouteContainer>
-                    </AppDiv>
-                </Container>
-            </ThemeProvider>
-        </Router>
+        <Provider store={store}>
+            <Router>
+                <ThemeProvider theme={theme}>
+                    <GlobalStyle />
+                    <Container>
+                        <Navbar />
+                        <AppDiv>
+                            <Sidebar />
+                            <RouteContainer>
+                                {children}
+                            </RouteContainer>
+                        </AppDiv>
+                    </Container>
+                </ThemeProvider>
+            </Router>
+        </Provider>
     )
 }
 

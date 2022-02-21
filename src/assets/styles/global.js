@@ -7,7 +7,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     }
-    body {
+    body,html {
+        height:100%;
         margin: 0;
         padding: 0;
         background: ${colors.darkBlue_1};

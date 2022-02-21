@@ -14,4 +14,8 @@ export default RouteContainer
 
 const Div = styled(Grid)`
     border:1px solid #fff;
+
+    @media (min-width: 900px){ 
+        margin-left:1rem;
+    }
 `
