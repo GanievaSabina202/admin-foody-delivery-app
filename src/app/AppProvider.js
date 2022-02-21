@@ -6,19 +6,24 @@ import RouteContainer from '../assets/styles/routeContainer/routeContainer'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import styled from 'styled-components'
+import { ThemeProvider } from "styled-components";
+import { theme } from '../assets/styles/theme'
+
 export const AppProvider = ({ children }) => {
     return (
         <Router>
-            <GlobalStyle />
-            <Container>
-                <Navbar />
-                <AppDiv>
-                    <Sidebar />
-                    <RouteContainer>
-                        {children}
-                    </RouteContainer>
-                </AppDiv>
-            </Container>
+            <ThemeProvider theme={theme}>
+                <GlobalStyle />
+                <Container>
+                    <Navbar />
+                    <AppDiv>
+                        <Sidebar />
+                        <RouteContainer>
+                            {children}
+                        </RouteContainer>
+                    </AppDiv>
+                </Container>
+            </ThemeProvider>
         </Router>
     )
 }

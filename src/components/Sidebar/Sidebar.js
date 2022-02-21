@@ -10,5 +10,6 @@ export const Sidebar = () => {
 const Div = styled.section`
     width:18.125rem;
     height:29.625rem;
-    background-color:red;
+    background-color:${({ theme }) => theme.colors.lightPurple_2};
+;
 `
