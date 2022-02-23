@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const PageHeader = () => {
+export const PageHeaderComponent = () => {
     return (
         <Div>PageHeader</Div>
     )
 }
 
-export default PageHeader
 
 const Div = styled.div`
     height:73px;

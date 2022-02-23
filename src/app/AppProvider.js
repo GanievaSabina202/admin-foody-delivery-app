@@ -28,7 +28,7 @@ export const AppProvider = ({ children }) => {
                     </Container>
                 </ThemeProvider>
             </Router>
-        </Provider>
+        </Provider >
     )
 }
 

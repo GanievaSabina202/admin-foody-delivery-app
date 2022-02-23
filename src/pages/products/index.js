@@ -1,9 +1,12 @@
 import React from 'react';
-import { ProductContainer } from '../../features/product/ProductContainer/ProductContainer';
+import ProductContainer from '../../features/product/ProductContainer'
 
 const Products = () => {
     return (
-        <ProductContainer />
+        <>
+            <ProductContainer />
+            <h1>proooo</h1>
+        </>
     );
 };
 

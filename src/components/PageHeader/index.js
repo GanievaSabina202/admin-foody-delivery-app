@@ -1,2 +1,2 @@
-import { PageHeader } from './PageHeader'
-export default PageHeader
+import { PageHeaderComponent } from './PageHeader'
+export default PageHeaderComponent

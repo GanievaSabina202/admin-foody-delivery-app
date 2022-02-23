@@ -1,11 +1,10 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { getData } from '../../../store/slices/product/productSlice'
+import { getData } from '../../../store/slices/product/productSlice';
 import { getProductDataUrl } from '../../../services/product';
-import Pagenations from "../../../components/Pagination/index";
-import { useState } from 'react'
+import Paginations from "../../../components/Pagination"
+
 
 export const ProductContainer = () => {
     const ProductSelector = useSelector((state) => state.products.products)
@@ -32,7 +31,7 @@ export const ProductContainer = () => {
     return (
         <>
             <ProductCard ProductSelector={currentPosts} />
-            <Pagenations postsPerPage={postsPerPage} page={page} handleChange={handleChange}/>
+            <Paginations postsPerPage={postsPerPage} page={page} handleChange={handleChange} />
         </>
     );
 };

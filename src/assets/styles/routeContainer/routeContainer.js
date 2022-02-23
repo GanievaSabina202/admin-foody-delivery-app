@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Grid from '@mui/material/Grid';
+import PageHeaderComponent from '../../../components/PageHeader';
 
 const RouteContainer = ({ children }) => {
     return (
         <Div container>
+            <PageHeaderComponent />
             {children}
         </Div>
     )
