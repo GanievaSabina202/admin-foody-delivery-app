@@ -5,7 +5,6 @@ const Products = () => {
     return (
         <>
             <ProductContainer />
-            <h1>proooo</h1>
         </>
     );
 };

@@ -5,19 +5,21 @@ import { removeProduct } from '../../../store/slices/product/productSlice';
 import { RemoveProductItem } from '../../../services/product';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Modals from '../../../components/Modal/index'
+import { Delete } from '../../../components/Delete/Delete';
 export const ProductCard = ({ ProductSelector }) => {
 
     const dispatch = useDispatch();
 
+    const ModalTitle = "Are you sure it’s deleted ?"
+    const ModalDesc = " Attention! If you delete this PRODUCTS, it will not come back..."
     const handler = async (id) => {
         RemoveProductItem()
         dispatch(removeProduct(id))
         toast("Wow so easy!")
+
     }
     return (
         <>
-
             <ToastContainer />
             <Styled.StackWrap>
                 {ProductSelector.map((i) => (
@@ -38,7 +40,7 @@ export const ProductCard = ({ ProductSelector }) => {
                             <Styled.Price>
                                 $16
                             </Styled.Price>
-                            <Modals handler={() => handler(i.id)}/>
+                            <Delete handler={() => handler(i.id)} ModalTitle={ModalTitle} ModalDesc={ModalDesc}/>
                         </Styled.ContentAction>
                     </Styled.CardWrapper>
                 ))}
