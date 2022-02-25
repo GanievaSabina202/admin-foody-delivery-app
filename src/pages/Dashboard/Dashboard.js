@@ -16,7 +16,7 @@ export const Dashboard = () => {
                 </LineDiv>
             </UpperDiv>
             <div>
-                <div>offers</div>
+                <div>offerss</div>
                 <div>orders</div>
             </div>
         </DashboardContainer>
