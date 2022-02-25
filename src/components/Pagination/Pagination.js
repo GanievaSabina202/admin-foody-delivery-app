@@ -9,7 +9,9 @@ export const Paginations = ({postsPerPage,page,handleChange}) => {
             count={postsPerPage} 
             page={page} 
             onChange={handleChange} 
-            variant="outlined" />
+            variant="outlined"
+            defaultPage={2} 
+           />
         </Styled.StackCustom>
     );
 };
