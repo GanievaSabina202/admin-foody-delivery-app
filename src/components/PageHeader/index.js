@@ -1,2 +1,3 @@
+import { withRouter } from 'react-router-dom'
 import { PageHeaderComponent } from './PageHeader'
-export default PageHeaderComponent
+export default withRouter(PageHeaderComponent)

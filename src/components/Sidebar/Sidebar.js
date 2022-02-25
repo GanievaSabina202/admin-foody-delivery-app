@@ -85,7 +85,8 @@ const settingFlex = styled.div`
 const Div = styled(settingFlex)`
     flex-direction:column;
     justify-content:space-between;
- 
+    position:relative;
+    height:90vh;
 
     .active{
         border-radius:4px;
