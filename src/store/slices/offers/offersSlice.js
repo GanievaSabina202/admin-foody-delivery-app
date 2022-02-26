@@ -8,7 +8,11 @@ const initialState = {
 }
 
 export const fetchOffers = createAsyncThunk('fetchOffers', async () => {
-    const response = await axios.get(`https://jsonplaceholder.typicode.com/photos?_start=0&_limit=50`);
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/photos`);
+    return response.data;
+})
+export const fetchOffersRemove = createAsyncThunk('fetchOffersRemove', async (id) => {
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/photos${id}`);
     return response.data;
 })
 
@@ -25,7 +29,6 @@ export const offersSlice = createSlice({
         // }
     },
     extraReducers: (bulider) => {
-
         bulider.addCase(fetchOffers.pending, (state, action) => {
             state.loading = true;
             state.error = "";
@@ -42,8 +45,6 @@ export const offersSlice = createSlice({
             state.loading = false;
             state.error = 'Error';
         })
-
-
     }
 })
 

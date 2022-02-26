@@ -55,6 +55,8 @@ export const SubTitle = styled(Typography).attrs(() => ({
 export const StackWrap = styled.div`
     display: flex;
     flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
     @media(max-width:1199.9px){
         justify-content: center;
     }
