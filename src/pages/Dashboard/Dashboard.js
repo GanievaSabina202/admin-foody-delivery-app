@@ -8,7 +8,7 @@ import { DashboardContainer, ItemDonut, ItemLine, ItemAssignedRisks, AssignedAct
 export const Dashboard = () => {
 
     return (
-        <DashboardContainer>
+             <DashboardContainer>
             <div>
                 <Grid container spacing={2} >
                     <Grid item lg={5} md={6} sm={12} xs={12}>
