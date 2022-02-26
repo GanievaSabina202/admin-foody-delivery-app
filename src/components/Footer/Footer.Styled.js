@@ -8,12 +8,14 @@ justify-content:center;
 border-radius:1rem;
 background-color:${({ theme }) => theme.colors.darkBlue_3};
 height:5rem;
+width:15rem;
 `
 
 export const FooterContainer = styled.div`
 position:absolute;
+width:100% !important; 
 bottom:2.6rem;
-width:100% !important;
+
 
 p{
     color:#ffffff90;

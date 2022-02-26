@@ -4,7 +4,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export const CardWrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.white};
-    width: 190px;
+    width: 185px;
     height: 273px;
     margin:9px !important;
     border-radius: 5px;
@@ -15,6 +15,7 @@ export const CardWrapper = styled.div`
     flex-direction: column;
     padding: 16px;
     transition: .4s;
+
 
     &:hover{
         transform: scale(0.95);
