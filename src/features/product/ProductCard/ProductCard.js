@@ -7,10 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Delete } from '../../../components/Delete/Delete';
 export const ProductCard = ({ ProductSelector }) => {
-
     const dispatch = useDispatch();
-
-    const ModalTitle = "Are you sure it’s deleted ?"
+    const ModalTitle = "Are you sure it’s deleted"
     const ModalDesc = " Attention! If you delete this PRODUCTS, it will not come back..."
     const handler = async (id) => {
         RemoveProductItem()

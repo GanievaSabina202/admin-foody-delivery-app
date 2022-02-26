@@ -9,6 +9,7 @@ export const OffersContainer = () => {
 
     const dispatch = useDispatch();
     const { offers } = useSelector(state => state.offers)
+    
     const getAllData = () => {
         offers.length < 1 && dispatch(fetchOffers())
     }
