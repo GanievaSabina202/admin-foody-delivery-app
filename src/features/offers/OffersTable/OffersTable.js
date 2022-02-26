@@ -1,11 +1,8 @@
 import React from 'react';
 import { Tables } from '../../../components/Table/Tables';
-// import { RemoveOffersItem } from '../../../services/offers';
 import { toast } from 'react-toastify';
 import { fetchOffersRemove } from '../../../store/slices/offers/offersSlice';
-import { useDispatch } from 'react-redux';
-// import { removeOffers } from '../../../store/slices/offers/offersSlice';
-import { useSelector } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 
 export const OffersTable = () => {
     const dispatch = useDispatch();
