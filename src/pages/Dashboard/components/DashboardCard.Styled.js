@@ -1,5 +1,19 @@
 import { Paper } from "@mui/material";
+import { motion } from "framer-motion";
 import styled from "styled-components";
+
+
+export const pageVariants = {
+    initial: {
+        opacity: 0,
+    },
+    in: {
+        opacity: 1,
+    },
+    out: {
+        opacity: 0,
+    },
+}
 
 export const Item = styled(Paper)`
     background-color: '#fff';
@@ -59,7 +73,7 @@ export const ItemLine = styled(Paper)`
         padding:1rem 3rem;
     } */
 `
-export const DashboardContainer = styled.div`
+export const DashboardContainer = styled(motion.div)`
 width:100%;
 padding-bottom:2.5rem;
 

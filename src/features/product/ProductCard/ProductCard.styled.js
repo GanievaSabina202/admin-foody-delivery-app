@@ -4,9 +4,9 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export const CardWrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.white};
-    width: 185px;
+    width: 190px;
     height: 273px;
-    margin:9px !important;
+    margin:9px 1rem !important;
     border-radius: 5px;
     box-shadow: 0px 4px 4px #39393940;
     display: flex;
@@ -57,7 +57,8 @@ export const StackWrap = styled.div`
     display: flex;
     flex-flow: row wrap;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
+    
     @media(max-width:1199.9px){
         justify-content: center;
     }

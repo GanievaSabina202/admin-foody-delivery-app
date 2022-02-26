@@ -3,6 +3,7 @@ import logo from '../../assets/images/logo.svg'
 import { FooterContainer, FooterInside } from './Footer.Styled'
 
 export const Footer = () => {
+
     return (
         <FooterContainer>
             <FooterInside>

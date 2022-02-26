@@ -2,13 +2,18 @@ import React from 'react'
 import { ChartLine } from '../../components/Charts/Line'
 import { ChartDonut } from "../../components/Charts/Donut";
 import Grid from '@mui/material/Grid';
-import { DashboardContainer, ItemDonut, ItemLine, ItemAssignedRisks, AssignedActionItems } from './components/DashboardCard.Styled';
+import { DashboardContainer, ItemDonut, ItemLine, ItemAssignedRisks, AssignedActionItems, pageVariants } from './components/DashboardCard.Styled';
 
 
 export const Dashboard = () => {
 
     return (
-             <DashboardContainer>
+
+        <DashboardContainer
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}>
             <div>
                 <Grid container spacing={2} >
                     <Grid item lg={5} md={6} sm={12} xs={12}>

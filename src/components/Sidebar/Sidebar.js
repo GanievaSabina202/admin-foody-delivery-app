@@ -1,6 +1,6 @@
 import React from 'react'
 import { CATAGORY } from '../../util/routing';
-import { Footer } from '../Footer/Footer';
+// import { Footer } from '../Footer/Footer';
 import { Div, Li, LinkStyled, UL } from './Sidebar.styled';
 
 export const Sidebar = () => {
@@ -69,9 +69,9 @@ export const Sidebar = () => {
                 </Li>
             </UL>
 
-            {
+            {/* {
                 window.location.pathname === '/panel/dashboard' ? <Footer /> : ''
-            }
+            } */}
         </Div>
     )
 }
