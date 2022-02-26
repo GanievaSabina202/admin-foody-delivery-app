@@ -23,4 +23,8 @@ export const PaginationCustom = styled(Pagination).attrs(() => ({
         background-color:${({theme})=>theme.colors.lightPink} !important;
         color:${({theme})=>theme.colors.white} !important;
     }
+    & .MuiPaginationItem-root.MuiPaginationItem-sizeMedium.MuiPaginationItem-outlined.MuiPaginationItem-circular.MuiPaginationItem-ellipsis.css-1v2lvtn-MuiPaginationItem-root{
+        color:${({theme})=>theme.colors.white} !important;
+        font-size: 24px;
+    }
 `

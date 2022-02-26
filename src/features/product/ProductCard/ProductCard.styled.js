@@ -4,7 +4,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export const CardWrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.white};
-    width: 196px;
+    width: 190px;
     height: 273px;
     margin:9px !important;
     border-radius: 5px;
@@ -14,6 +14,15 @@ export const CardWrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     padding: 16px;
+    transition: .4s;
+
+    &:hover{
+        transform: scale(0.95);
+    }
+
+    @media(max-width:991.9px){
+        width: 236px;
+    }
 `
 
 export const ImgWrapper = styled.img`
@@ -46,7 +55,11 @@ export const SubTitle = styled(Typography).attrs(() => ({
 export const StackWrap = styled.div`
     display: flex;
     flex-flow: row wrap;
-    
+    width: 100%;
+    justify-content: center;
+    @media(max-width:1199.9px){
+        justify-content: center;
+    }
 `
 
 

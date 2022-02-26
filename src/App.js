@@ -1,10 +1,11 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { AppProvider } from './app/AppProvider'
+import Category from './pages/category'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/login'
+import Offers from './pages/offers'
 import Products from './pages/products'
-// import proo from './pages/products/proo'
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
         <Route exact path="/panel" component={Dashboard} />
         <Route path="/panel/dashboard" component={Dashboard} />
         <Route path="/panel/products" component={Products} />
+        <Route path="/panel/category" component={Category}/>
+        <Route path="/panel/offers" component={Offers}/>
 
         {/* <Route  path="/panel/restaurants" component={Dashboard} />
         <Route  path="/panel/orders" component={Dashboard} />
