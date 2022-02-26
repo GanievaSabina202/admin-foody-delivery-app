@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion'
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { AppProvider } from './app/AppProvider'
@@ -10,20 +11,21 @@ import Products from './pages/products'
 const App = () => {
   return (
     <AppProvider>
+      <AnimatePresence>
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/panel" component={Dashboard} />
+          <Route path="/panel/dashboard" component={Dashboard} />
+          <Route path="/panel/products" component={Products} />
+          <Route path="/panel/category" component={Category} />
+          <Route path="/panel/offers" component={Offers} />
 
-      <Switch>
-        <Route exact path="/" component={Dashboard} />
-        <Route exact path="/panel" component={Dashboard} />
-        <Route path="/panel/dashboard" component={Dashboard} />
-        <Route path="/panel/products" component={Products} />
-        <Route path="/panel/category" component={Category}/>
-        <Route path="/panel/offers" component={Offers}/>
-
-        {/* <Route  path="/panel/restaurants" component={Dashboard} />
+          {/* <Route  path="/panel/restaurants" component={Dashboard} />
         <Route  path="/panel/orders" component={Dashboard} />
         <Route  path="/panel/offers" component={Dashboard} /> */}
-        <Route path="/login" component={Login} />
-      </Switch>
+          <Route path="/login" component={Login} />
+        </Switch>
+      </AnimatePresence>
     </AppProvider>
   )
 }

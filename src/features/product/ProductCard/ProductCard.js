@@ -6,6 +6,7 @@ import { RemoveProductItem } from '../../../services/product';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Delete } from '../../../components/Delete/Delete';
+import styled from "styled-components"
 
 export const ProductCard = ({ ProductSelector }) => {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const ProductCard = ({ ProductSelector }) => {
     return (
         <>
             <ToastContainer />
-            <div>
+            <DivStyledProduct>
                 <Styled.StackWrap>
                     {ProductSelector.map((i) => (
                         <Styled.CardWrapper key={i.id}>
@@ -45,7 +46,12 @@ export const ProductCard = ({ ProductSelector }) => {
                         </Styled.CardWrapper>
                     ))}
                 </Styled.StackWrap>
-            </div>
+            </DivStyledProduct>
         </>
     );
 };
+
+const DivStyledProduct = styled.div`
+    margin-top:2.5rem;
+    width:100%;
+`

@@ -6,7 +6,8 @@ export const StackCustom = styled(Stack)`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:10px 0px;
+    margin:5rem 0px;
+
 `
 export const PaginationCustom = styled(Pagination).attrs(() => ({
 
@@ -16,15 +17,25 @@ export const PaginationCustom = styled(Pagination).attrs(() => ({
     height:64px;
     font-size: 18px;
     border-radius: 50%;
-    color: ${({theme})=>theme.colors.lightPink} ;
-    border:1px solid ${({theme})=>theme.colors.lightPink}; 
+    color: ${({ theme }) => theme.colors.lightPink} ;
+    border:1px solid ${({ theme }) => theme.colors.lightPink}; 
+
+
    }
    & .Mui-selected{
-        background-color:${({theme})=>theme.colors.lightPink} !important;
-        color:${({theme})=>theme.colors.white} !important;
+        background-color:${({ theme }) => theme.colors.lightPink} !important;
+        color:${({ theme }) => theme.colors.white} !important;
     }
     & .MuiPaginationItem-root.MuiPaginationItem-sizeMedium.MuiPaginationItem-outlined.MuiPaginationItem-circular.MuiPaginationItem-ellipsis.css-1v2lvtn-MuiPaginationItem-root{
-        color:${({theme})=>theme.colors.white} !important;
+        color:${({ theme }) => theme.colors.white} !important;
         font-size: 24px;
+    }
+
+    @media (max-width:650px){
+        & button{
+            width:44px;
+    height:44px;
+    font-size: 14px;
+        }
     }
 `
