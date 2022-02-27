@@ -18,6 +18,7 @@ export const ProductCard = ({ ProductSelector }) => {
         toast("Wow so easy!")
 
     }
+
     return (
         <>
             <ToastContainer />
