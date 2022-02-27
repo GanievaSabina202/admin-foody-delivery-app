@@ -1,4 +1,5 @@
 import React from 'react'
+import { AddDrawer } from '../AddDrawer/AddDrawer';
 // import styled from 'styled-components'
 import AddButton from '../Buttons/addButton';
 import RestaurantsHeader from './HeaderVercions/restaurants';
@@ -19,6 +20,7 @@ export const PageHeaderComponent = () => {
         case ('/panel/restaurants'):
             return (
                 <RestuarantsDiv>
+                    <AddDrawer />
                     <h2>Restaurants</h2>
                     <RestuarantsButtonsDiv>
                         <RestaurantsHeader />
