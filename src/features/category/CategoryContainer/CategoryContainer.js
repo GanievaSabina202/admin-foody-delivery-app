@@ -7,7 +7,6 @@ import { fetchCategory, getDataCategory } from '../../../store/slices/category/c
 export const CategoryContainer = () => {
     const { category } = useSelector(state => state.category)
     const dispatch = useDispatch();
-    console.log(category);
     // useEffect(() => {
     //     getFillDataCategory()
     // }, [])

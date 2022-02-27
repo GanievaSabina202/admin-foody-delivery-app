@@ -1,7 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
-import ProductHeader from './HeaderVercions/products';
+// import styled from 'styled-components'
+import AddButton from '../Buttons/addButton';
 import RestaurantsHeader from './HeaderVercions/restaurants';
+import { Div, RestuarantsButtonsDiv, RestuarantsDiv } from './PageHeader.Styled';
 
 export const PageHeaderComponent = () => {
 
@@ -11,15 +12,19 @@ export const PageHeaderComponent = () => {
         case ('/panel/products'):
             return (
                 <Div>
-                    <ProductHeader />
+                    <h2>Products</h2>
                 </Div>
             )
 
         case ('/panel/restaurants'):
             return (
-                <Div>
-                    <RestaurantsHeader />
-                </Div>
+                <RestuarantsDiv>
+                    <h2>Restaurants</h2>
+                    <RestuarantsButtonsDiv>
+                        <RestaurantsHeader />
+                        <AddButton />
+                    </RestuarantsButtonsDiv>
+                </RestuarantsDiv>
             )
 
         default:
@@ -28,16 +33,3 @@ export const PageHeaderComponent = () => {
 
 }
 
-
-const Div = styled.div`
-    height:73px;
-    border-radius:14px;
-    background-color:${({ theme }) => theme.colors.darkBlue_3};
-    width:100%;
-
-    h2{
-        font-size:1.25rem;
-        font-weight:500;
-        color:${({ theme }) => theme.colors.grayText};
-    }
-`
