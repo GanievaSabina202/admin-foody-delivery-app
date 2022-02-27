@@ -2,12 +2,17 @@ import { Button } from '@mantine/core'
 import React from 'react'
 import styled from 'styled-components'
 import { AiOutlinePlus } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { addDrawer } from '../../store/slices/drawer/drawerSlices';
 
 
 const AddButton = () => {
+
+    const dispatch = useDispatch()
+
     return (
 
-        <AddButtonStyled>
+        <AddButtonStyled onClick={() => dispatch(addDrawer())}>
             <PlusIcon />
             ADD RESTAURANTS
         </AddButtonStyled>

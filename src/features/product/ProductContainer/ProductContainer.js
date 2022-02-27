@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getData } from '../../../store/slices/product/productSlice';
 import { getProductDataUrl } from '../../../services/product';
 import Paginations from "../../../components/Pagination"
+import axios from 'axios';
 
 export const ProductContainer = () => {
     const ProductSelector = useSelector((state) => state.products.products)
@@ -15,6 +16,7 @@ export const ProductContainer = () => {
     }
 
     useEffect(() => {
+
         getFillProduct()
     }, [])
 

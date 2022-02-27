@@ -5,9 +5,8 @@ import { OrdersTable } from '../OrdersTable/OrdersTable';
 
 export const OrdersContainer = () => {
     const dispatch = useDispatch();
-    const  {orders}  = useSelector(state => state.orders)
-    console.log(orders,'khiui');
-    
+    const { orders } = useSelector(state => state.orders)
+
     const getAllData = () => {
         orders.length < 1 && dispatch(fetchOrders())
     }
