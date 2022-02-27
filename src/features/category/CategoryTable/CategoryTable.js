@@ -6,10 +6,9 @@ import { RemoveCategoryItem } from '../../../services/category';
 import { removeCategory } from '../../../store/slices/category/categorySlice';
 
 export const CategoryTable = () => {
-    
-    const dispatch = useDispatch();
+
+
     const rows = useSelector(state => state.category.category)
-    console.log(rows,"NJJ");
     const ModalTitle = "Are you sure it’s deleted ?"
     const ModalDesc = " Attention! If you delete this CATEGORY, it will not come back..."
 
