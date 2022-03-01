@@ -30,8 +30,8 @@ export const AddDrawer = ({ children }) => {
                     closeButton: 'drawer-closeButton-class',
                 }}
             >
-
                 <CustomDropzone />
+
             </AddDrawerStyled>
         </>
     );
