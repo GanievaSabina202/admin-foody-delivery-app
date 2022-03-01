@@ -32,10 +32,6 @@ export const AddDrawer = ({ children }) => {
             >
 
                 <CustomDropzone />
-
-                {
-                    children
-                }
             </AddDrawerStyled>
         </>
     );
