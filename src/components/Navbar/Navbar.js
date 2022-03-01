@@ -7,12 +7,11 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
 import CustomDrawer from '../Drawer';
 import { drawer } from '../../store/slices/drawer/drawerSlices';
 import { useDispatch } from 'react-redux';
 import { AppBarStyled } from './Navbar.styled';
-import AddButton from '../Buttons/addButton'
+// import AddButton from '../Buttons/addButton'
 
 export const Navbar = () => {
 
@@ -20,7 +19,7 @@ export const Navbar = () => {
 
     return (
 
-        <AppBarStyled position="static">
+        <AppBarStyled position="static" className='CustomNavBar'>
             <Container maxWidth="xl">
                 <CustomDrawer />
                 <Toolbar disableGutters>

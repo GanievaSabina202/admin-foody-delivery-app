@@ -37,6 +37,11 @@ const AddButtonStyled = styled(Button)`
     &:hover{
         background-color:${({ theme }) => theme.colors.lightPurple_2};
     }
+
+    @media(max-width:577px){
+        width:100%;
+        margin-top:0.3rem;
+    }
 `
 
 const PlusIcon = styled(AiOutlinePlus)`

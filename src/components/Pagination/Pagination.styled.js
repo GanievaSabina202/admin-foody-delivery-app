@@ -8,6 +8,15 @@ export const StackCustom = styled(Stack)`
     align-items: center;
     margin:5rem 0px;
 
+    li{
+        
+       div{
+           color:#fff!important;
+           font-size: 24px;
+       }
+    } 
+    
+
 `
 export const PaginationCustom = styled(Pagination).attrs(() => ({
 
@@ -26,16 +35,12 @@ export const PaginationCustom = styled(Pagination).attrs(() => ({
         background-color:${({ theme }) => theme.colors.lightPink} !important;
         color:${({ theme }) => theme.colors.white} !important;
     }
-    & .MuiPaginationItem-root.MuiPaginationItem-sizeMedium.MuiPaginationItem-outlined.MuiPaginationItem-circular.MuiPaginationItem-ellipsis.css-1v2lvtn-MuiPaginationItem-root{
-        color:${({ theme }) => theme.colors.white} !important;
-        font-size: 24px;
-    }
 
     @media (max-width:650px){
         & button{
             width:44px;
-    height:44px;
-    font-size: 14px;
+     height:44px;
+     font-size: 14px;
         }
     }
 `

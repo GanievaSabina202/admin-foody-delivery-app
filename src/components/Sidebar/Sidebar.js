@@ -4,12 +4,12 @@ import { CATAGORY } from '../../util/routing';
 import { Div, Li, LinkStyled, UL } from './Sidebar.styled';
 
 export const Sidebar = () => {
-
     const { CHILD } = CATAGORY.MAIN.PANEL;
-    const { LOGOUT } = CATAGORY.MAIN
+    const { LOGOUT } = CATAGORY.MAIN;
+    // const location = window.location.pathname;
 
     return (
-        <Div>
+        <Div className="CutomSlideBar">
             <UL>
                 <Li>
                     {
@@ -68,10 +68,6 @@ export const Sidebar = () => {
                     }
                 </Li>
             </UL>
-
-            {/* {
-                window.location.pathname === '/panel/dashboard' ? <Footer /> : ''
-            } */}
         </Div>
     )
 }

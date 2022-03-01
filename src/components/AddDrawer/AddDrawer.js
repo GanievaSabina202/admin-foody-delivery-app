@@ -13,6 +13,7 @@ export const AddDrawer = () => {
     return (
         <>
             <AddDrawerStyled
+                transitionDuration={500}
                 position="right"
                 opened={addDrawerStatus}
                 onClose={() => dispatch(addDrawer())}

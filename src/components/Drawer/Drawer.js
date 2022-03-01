@@ -17,6 +17,7 @@ export const CustomDrawer = () => {
 
     return (
         <DrawerStyled
+            transitionDuration={500}
             variant="temporary"
             open={status}
             onClose={() => dispatch(drawer())}

@@ -1,8 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
 
 export const Login = () => {
     return (
-        <div><h1>login</h1></div>
+        <LoginStyled><h1>login</h1></LoginStyled>
     )
 }
 
+
+const LoginStyled = styled.div`
+    background-color:red;
+`

@@ -23,10 +23,6 @@ const App = () => {
           <Route path="/panel/offers" component={Offers} />
           <Route path="/panel/restaurants" component={Restaurants} />
           <Route path="/panel/orders" component={Orders} />
-
-          {/* <Route  path="/panel/restaurants" component={Dashboard} />
-        <Route  path="/panel/orders" component={Dashboard} />
-        <Route  path="/panel/offers" component={Dashboard} /> */}
           <Route path="/login" component={Login} />
         </Switch>
       </AnimatePresence>

@@ -60,7 +60,7 @@ export const Tables = ({ rows, handler, ModalDesc, ModalTitle }) => {
                                                         return (
                                                             <TableCell key={column.id} align={column.align}>
                                                                 {column.id === 'url'
-                                                                    ? <img width="45" height="45" cover src={value} />
+                                                                    ? <img width="45" alt='' height="45" src={value} />
                                                                     : value.length > 30 ? `${value.slice(0, 30)}...` : value}
                                                             </TableCell>
                                                         );
