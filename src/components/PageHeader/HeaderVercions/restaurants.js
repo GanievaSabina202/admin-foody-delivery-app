@@ -11,12 +11,12 @@ const RestaurantsHeader = () => {
     const catagory = ['PIZZA', 'FASTFOOD', 'COFFEE',]
 
     return (
-        <Menu control={<StyledButton>Catagory type <MdKeyboardArrowDown /> </StyledButton>} opened={opened} onOpen={() => setOpened(true)} onClose={() => setOpened(false)}>
+        <StyledMenu control={<StyledButton>Catagory type <MdKeyboardArrowDown /> </StyledButton>} opened={opened} onOpen={() => setOpened(true)} onClose={() => setOpened(false)}>
             <Menu.Label>Choose Catagory</Menu.Label>
             {
                 catagory.map((i, index) => <Menu.Item key={index} >{i}</Menu.Item>)
             }
-        </Menu>
+        </StyledMenu >
     )
 }
 
@@ -37,5 +37,14 @@ const StyledButton = styled(Button)`
         margin-top:.3rem;
         font-size:1.5rem;
     }
+
+    @media(max-width:577px){
+        width:100% !important;
+    }
 `
 
+const StyledMenu = styled(Menu)`
+    @media(max-width:577px){
+    width:100%;
+    }
+`

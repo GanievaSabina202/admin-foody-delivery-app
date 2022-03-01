@@ -36,7 +36,7 @@ list-style-type: none;
 `
 
 export const LinkStyled = styled(NavLink)`
-transition:all 0.2s;
+transition:all 0.3s;
 display:flex;
 align-items: center;
 text-decoration: none;
