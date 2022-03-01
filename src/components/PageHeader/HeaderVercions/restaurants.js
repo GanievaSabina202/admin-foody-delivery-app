@@ -14,7 +14,7 @@ const RestaurantsHeader = () => {
         <Menu control={<StyledButton>Catagory type <MdKeyboardArrowDown /> </StyledButton>} opened={opened} onOpen={() => setOpened(true)} onClose={() => setOpened(false)}>
             <Menu.Label>Choose Catagory</Menu.Label>
             {
-                catagory.map(i => <Menu.Item >{i}</Menu.Item>)
+                catagory.map((i, index) => <Menu.Item key={index} >{i}</Menu.Item>)
             }
         </Menu>
     )

@@ -14,7 +14,6 @@ export const RestaurantsCard = ({ apisProp }) => {
     const ModalDesc = " Attention! If you delete this PRODUCTS, it will not come back...";
 
     const dispatch = useDispatch()
-
     const theme = useMantineTheme();
     const handler = async (id) => {
         RemoveProductItem()
@@ -29,7 +28,7 @@ export const RestaurantsCard = ({ apisProp }) => {
             <RestaurantsCardContent >
                 {
                     apisProp && apisProp.map((items) => (
-                        <StyledRestuarantsCards shadow="sm" padding="lg" key={items.id}>
+                        <StyledRestuarantsCards shadow="sm" padding="lg" key={items.id} >
                             <Delete handler={() => handler(items.id)} ModalTitle={ModalTitle} ModalDesc={ModalDesc} />
                             <div>
                                 <ImageStyled src={'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Burger_King_logo_%281999%29.svg/1200px-Burger_King_logo_%281999%29.svg.png'} alt="Norway" />
@@ -47,7 +46,7 @@ export const RestaurantsCard = ({ apisProp }) => {
                 }
 
             </RestaurantsCardContent>
-        </div>
+        </div >
     );
 }
 
