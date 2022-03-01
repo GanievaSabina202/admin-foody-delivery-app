@@ -1,14 +1,15 @@
 // import { useState } from 'react';
-import { Drawer, Input } from '@mantine/core';
+// import { Input } from '@mantine/core';
 import { useDispatch } from 'react-redux';
 import { addDrawer } from '../../store/slices/drawer/drawerSlices';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { AddDrawerStyled } from './AddDrawer.Styled';
+import { CustomDropzone } from '../Dropzone/Dropzone.js';
 
-export const AddDrawer = () => {
-    // const [opened, setOpened] = useState(false);
+export const AddDrawer = ({ children }) => {
     const dispatch = useDispatch();
     const { addDrawerStatus } = useSelector(props => props.drawer);
+    console.log(children);
 
     return (
         <>
@@ -29,27 +30,15 @@ export const AddDrawer = () => {
                     closeButton: 'drawer-closeButton-class',
                 }}
             >
-                {/* <DropzoneImg /> */}
-                <Input variant="default" placeholder="Default variant" />
-                <h1>Dwideer</h1>
-                <h1>Dwideer</h1>
-                <h1>Dwideer</h1>
-                <h1>Dwideer</h1>
-                <h1>Dwideer</h1>
+
+                <CustomDropzone />
+
+                {
+                    children
+                }
             </AddDrawerStyled>
         </>
     );
 }
 
 
-const AddDrawerStyled = styled(Drawer)`
-    
-.drawer-closeButton-class{
-    color:#fff;
-    background-color: #ffffff30;
-}
-.drawer-drawer-class{
-    background-color:${({ theme }) => theme.colors.darkBlue_2};
-    color:${({ theme }) => theme.colors.grayText}
-}
-`
