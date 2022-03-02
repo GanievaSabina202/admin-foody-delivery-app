@@ -6,16 +6,20 @@ import styled from 'styled-components';
 
 export const CustomDropzone = () => {
 
-
     const [droppedData, setDroppedData] = useState();
 
+    const uploadImg = (imgData) => {
+        if (imgData) {
+            setDroppedData((imgData[0]))
+        }
+    }
 
     return (
 
         <CustomDropzoneStyled
             onDrop={(files) => {
-                console.log('accepted files', files)
-                setDroppedData(files)
+                // console.log('accepted files', files)
+                uploadImg((files))
             }}
             onReject={(files) => console.log('rejected files', files)}
             maxSize={3 * 1024 ** 2}
@@ -26,17 +30,12 @@ export const CustomDropzone = () => {
                 active: 'Dropzone-active-class',
                 reject: 'Dropzone-reject-class',
             }}
-            data={droppedData}
+            data={droppedData ? URL.createObjectURL(droppedData) : ""}
 
 
         >
             {(status) => (
                 <Group position="center" spacing="xl" style={{ minHeight: 220, pointerEvents: 'none' }}>
-                    {/* <ImageUploadIcon
-                            status={status}
-                            style={{ width: 80, height: 80, color: getIconColor(status, theme) }}
-                        /> */}
-
                     <div>
                         <Text size="xl" inline>
                             Drag images here or click to select files
@@ -53,6 +52,7 @@ export const CustomDropzone = () => {
 
 
 const CustomDropzoneStyled = styled(Dropzone)`
-    background-image:(${({ data }) => data ? `url(${data[0].path})` : ''})
+    background:${({ data }) => `url(${data.replace('blob:', '')})`};
+    /* background:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqFOnmObxC_NvvJVdkU_zlYo9EUgK0sx_AEAt4cQC5A-pSvHv4VDsGYzeDR9OXKXduAi0&usqp=CAU) */
 `
-// ${(props) => `url(${props.imgUrl})`}
+
