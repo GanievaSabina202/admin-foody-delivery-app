@@ -1,5 +1,4 @@
-// import { useState } from 'react';
-// import { Input } from '@mantine/core';
+
 import { useDispatch } from 'react-redux';
 import { addDrawer } from '../../store/slices/drawer/drawerSlices';
 import { useSelector } from 'react-redux';
@@ -30,8 +29,8 @@ export const AddDrawer = ({ children }) => {
                     closeButton: 'drawer-closeButton-class',
                 }}
             >
-                <CustomDropzone />
-
+                {<CustomDropzone /> ? <CustomDropzone /> : ''}
+                <h1>xeyya,</h1>
             </AddDrawerStyled>
         </>
     );
