@@ -8,7 +8,6 @@ import { CustomDropzone } from '../Dropzone/DropzoneInput'
 export const AddDrawer = ({ children }) => {
     const dispatch = useDispatch();
     const { addDrawerStatus } = useSelector(props => props.drawer);
-    console.log(children);
 
     return (
         <>

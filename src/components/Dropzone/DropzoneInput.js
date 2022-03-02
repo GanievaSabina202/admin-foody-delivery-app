@@ -21,7 +21,7 @@ export const CustomDropzone = () => {
                 // console.log('accepted files', files)
                 uploadImg((files))
             }}
-            onReject={(files) => console.log('rejected files', files)}
+            onReject={(files) => files}
             maxSize={3 * 1024 ** 2}
             accept={IMAGE_MIME_TYPE}
             classNames={{
@@ -55,8 +55,6 @@ const CustomDropzoneStyled = styled(Dropzone)`
     background:${({ data }) => `url(${data})`};
     background-clip: content-box;
     background-size: contain;
-    /* background-repeat: no-repeat; */
-
     &:hover{
         background-color:#41425561;
     }
