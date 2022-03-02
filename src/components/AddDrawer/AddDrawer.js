@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addDrawer } from '../../store/slices/drawer/drawerSlices';
 import { useSelector } from 'react-redux';
 import { AddDrawerStyled } from './AddDrawer.Styled';
-import { CustomDropzone } from '../Dropzone/Dropzone.js';
+import { CustomDropzone } from '../Dropzone/DropzoneInput'
 
 export const AddDrawer = ({ children }) => {
     const dispatch = useDispatch();

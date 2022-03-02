@@ -55,4 +55,4 @@ const CustomDropzoneStyled = styled(Dropzone)`
     background:${({ data }) => `url(${data.replace('blob:', '')})`};
     /* background:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqFOnmObxC_NvvJVdkU_zlYo9EUgK0sx_AEAt4cQC5A-pSvHv4VDsGYzeDR9OXKXduAi0&usqp=CAU) */
 `
-// ${(props) => `url(${props.imgUrl})`}
+
