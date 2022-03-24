@@ -1,24 +1,29 @@
-
 import { useDispatch } from 'react-redux';
 import { addDrawer } from '../../store/slices/drawer/drawerSlices';
 import { useSelector } from 'react-redux';
 import { AddDrawerStyled } from './AddDrawer.Styled';
 import { CustomDropzone } from '../Dropzone/DropzoneInput'
+import CustomInputGroup from './components/inputs';
+import { removeImgUrl } from '../../store/slices/form/formSlice';
 
 export const AddDrawer = ({ children }) => {
     const dispatch = useDispatch();
     const { addDrawerStatus } = useSelector(props => props.drawer);
-
+    const closing = () => {
+        dispatch(addDrawer())
+        dispatch(removeImgUrl())
+    }
     return (
         <>
+
             <AddDrawerStyled
                 transitionDuration={500}
                 position="right"
                 opened={addDrawerStatus}
-                onClose={() => dispatch(addDrawer())}
-                title="Add Product"
+                onClose={() => closing()}
+                title="Add restaurant"
                 padding="xl"
-                size="xl"
+                size={948}
                 classNames={{
                     root: 'drawer-root-class',
                     overlay: 'drawer-overlay-class',
@@ -28,8 +33,18 @@ export const AddDrawer = ({ children }) => {
                     closeButton: 'drawer-closeButton-class',
                 }}
             >
-                {<CustomDropzone /> ? <CustomDropzone /> : ''}
-                <h1>xeyya,</h1>
+
+                <div className='drop-zone-box'>
+                    <p>Upload your restaurants image</p>
+                    <CustomDropzone />
+                </div>
+
+                <div className="form-box">
+                    <p>
+                        Add your Restuarants information
+                    </p>
+                    <CustomInputGroup />
+                </div>
             </AddDrawerStyled>
         </>
     );
