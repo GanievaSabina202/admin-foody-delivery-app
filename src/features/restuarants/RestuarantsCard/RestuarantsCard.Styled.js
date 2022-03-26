@@ -32,6 +32,7 @@ gap:0;
 align-items: start;
 margin-left:1rem;
 
+
 .mantine-qebhir{
     color:${({ theme }) => theme.colors.grayText1}
 }

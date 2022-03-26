@@ -28,6 +28,7 @@ const CustomInputGroup = () => {
             address: '',
             category: '',
             slug: '',
+            uniqueId: Date.now()
         },
 
         validate: {

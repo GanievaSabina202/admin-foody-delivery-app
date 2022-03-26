@@ -17,11 +17,11 @@ export const CustomDropzone = () => {
             setDroppedData((files[0]))
 
 
-            const storageRef = ref(storage, `/restuarants/${files[0]?.path}`);
+            const storageRef = ref(storage, `/restaurants/${files[0]?.path}`);
             const uploadImg = uploadBytesResumable(storageRef, files[0]);
 
             uploadImg.on("state_changed", (snapshot) => {
-                const prog = Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                // const prog = Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             },
                 (error) => console.log(error),
                 () => {

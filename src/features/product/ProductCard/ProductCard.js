@@ -5,7 +5,6 @@ import { removeProduct } from '../../../store/slices/product/productSlice';
 import { RemoveProductItem } from '../../../services/product';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Delete } from '../../../components/Delete/Delete';
 import styled from "styled-components"
 
 export const ProductCard = ({ ProductSelector }) => {
@@ -42,7 +41,7 @@ export const ProductCard = ({ ProductSelector }) => {
                                 <Styled.Price>
                                     $16
                                 </Styled.Price>
-                                <Delete handler={() => handler(i.id)} ModalTitle={ModalTitle} ModalDesc={ModalDesc} />
+                                {/* <Delete handler={() => handler(i.id)} ModalTitle={ModalTitle} ModalDesc={ModalDesc} /> */}
                             </Styled.ContentAction>
                         </Styled.CardWrapper>
                     ))}
