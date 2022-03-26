@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { Table, TableBody, TableCell, Paper, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material';
-import { Delete } from '../Delete/Delete';
+// import { Delete } from '../Delete/Delete';
 
 export const Tables = ({ rows, handler, ModalDesc, ModalTitle }) => {
 
@@ -66,7 +66,7 @@ export const Tables = ({ rows, handler, ModalDesc, ModalTitle }) => {
                                                         );
                                                     })}
                                                     <TableCell>
-                                                        <Delete handler={() => handler(row.id)} ModalTitle={ModalTitle} ModalDesc={ModalDesc} />
+                                                        {/* <Delete handler={() => handler(row.id)} ModalTitle={ModalTitle} ModalDesc={ModalDesc} /> */}
                                                     </TableCell>
                                                 </TableRow>
                                             );
