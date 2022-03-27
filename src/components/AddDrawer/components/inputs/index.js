@@ -14,7 +14,7 @@ import { LoadingOverlay } from '@mantine/core';
 const CustomInputGroup = () => {
     const dispatch = useDispatch();
     const [visible, setVisible] = useState(false);
-    const [data, setData] = useState(['Ice Cream', 'Street Food', 'Drink', 'National meal', 'Soup', 'Cake', 'Fast Food']);
+    const [data, setData] = useState(['Ice Cream', 'Street Food', 'Drink', 'National meal', 'Soup', 'Cake', 'Fast Food', 'Tea', 'Meat', 'Burger', 'Cola', 'Toasts', 'Cookies', 'Fanta', 'Pizza', 'Fish', 'Noodle', 'Coffee']);
     const restuarantsCollectionRef = collection(db, "restaurants");
     const { imgUrl } = useSelector(props => props.img);
 
