@@ -28,7 +28,7 @@ export const CategoryTableBody = ({ rows }) => {
                                 {uniqueId}
                             </TableCell>
                             <TableCell key={imgUrl}>
-                                <img src={imgUrl} alt="" width="45" height="45" />
+                                <img src={imgUrl} style={{ 'objectFit': 'cover' }} alt="" width="45" height="45" />
                             </TableCell>
                             <TableCell key={name}>
                                 {name}
@@ -126,7 +126,7 @@ export const OffersTableBody = ({ rows }) => {
                                 {id}
                             </TableCell>
                             <TableCell key={id + 1}>
-                                <img src={imgUrl} width='45' height='45' alt="" />
+                                <img src={imgUrl} style={{ 'objectFit': 'cover' }} width='45' height='45' alt="" />
                             </TableCell>
                             <TableCell key={id + 2}>
                                 {title}

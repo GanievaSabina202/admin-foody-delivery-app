@@ -7,6 +7,7 @@ import CustomInputGroup from './components/inputs';
 import { removeImgUrl } from '../../store/slices/form/formSlice';
 import CategoryInputsGroup from './components/category'
 import OffersInputsGroup from './components/offers';
+import ProductsInputsGroup from './components/products';
 
 export const AddDrawer = ({ config: { name, title, inputType, } }) => {
     const dispatch = useDispatch();
@@ -51,6 +52,7 @@ export const AddDrawer = ({ config: { name, title, inputType, } }) => {
                     {inputType === 'restaurants' && <CustomInputGroup />}
                     {inputType === 'category' && <CategoryInputsGroup />}
                     {inputType === 'offers' && <OffersInputsGroup />}
+                    {inputType === 'products' && <ProductsInputsGroup />}
                 </div>
             </AddDrawerStyled>
         </>
