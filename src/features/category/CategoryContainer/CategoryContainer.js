@@ -1,34 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CategoryTable } from '../CategoryTable/CategoryTable';
-import { useSelector, useDispatch } from 'react-redux';
-import { getCategoryDataUrl } from '../../../services/category';
-import { fetchCategory, getDataCategory } from '../../../store/slices/category/categorySlice';
-
+import { collection, query, orderBy, onSnapshot, } from 'firebase/firestore'
+import { Conatiner } from './CategoryContainer.styled';
+import { db } from '../../../config/firebase-config';
 export const CategoryContainer = () => {
-    const { category } = useSelector(state => state.category)
-    const dispatch = useDispatch();
-    // useEffect(() => {
-    //     getFillDataCategory()
-    // }, [])
-
-    // const getFillDataCategory = async () => {
-    //     const resCategory = await getCategoryDataUrl()
-    //     dispatch(getDataCategory(resCategory))
-    // }
-
-    const getAllDatas = () => {
-        category.length < 1 && dispatch(fetchCategory())
-    }
+    const [categoryStateData, setCategoryStateData] = useState([]);
 
     useEffect(() => {
-        getAllDatas();
+        const restuarantsCollectionRef = query(collection(db, "category"), orderBy('uniqueId', 'desc'));
+        onSnapshot(restuarantsCollectionRef, (snapshot) => {
+            setCategoryStateData(snapshot.docs.map((doc) => ({ ...doc.data(), uid: doc.id })))
+        })
     }, []);
 
+    console.log(categoryStateData)
 
     return (
-        <>
-            <CategoryTable />
-        </>
+        <Conatiner>
+            <CategoryTable categoryStateData={categoryStateData} />
+        </Conatiner>
     );
 };
 

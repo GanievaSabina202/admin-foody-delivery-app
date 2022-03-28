@@ -20,6 +20,13 @@ input{
     color:#C7C7C7;
 }
 
+textarea {
+    background-color:${({ theme }) => theme.colors.darkBlue_4};
+    border-radius: 14px;
+    border:1px solid ${({ theme }) => theme.colors.darkBlue_4};
+    color:#C7C7C7;
+}
+
 .mantine-TextInput-required,
 .mantine-MultiSelect-required,
 .mantine-NumberInput-required,

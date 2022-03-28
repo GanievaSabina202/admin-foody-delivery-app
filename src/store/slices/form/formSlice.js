@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    imgUrl: null,
+    imgUrl: [],
     progres: false
 }
 
@@ -9,11 +9,11 @@ export const formSlice = createSlice({
     name: 'imgUrl',
     initialState,
     reducers: {
-        setImageUrl: (state, dispatch) => {
-            state.imgUrl = dispatch.payload;
+        setImageUrl: (state, action) => {
+            state.imgUrl = action.payload;
         },
         removeImgUrl: (state) => {
-            state.imgUrl = null
+            state.imgUrl = [];
         },
         progres: (state) => {
             (!state.progres) ? state.progres = true : state.progres = false;

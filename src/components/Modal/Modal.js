@@ -15,15 +15,13 @@ export const DeleteModal = ({ dataForDelete }) => {
 
     const removeRes = async ({ id, imgUrl, cloudRef }) => {
         setVisible(true)
-        const imageName = imgUrl.match(/(?<=restaurants%2F).*(?=\?)/gm);
-        const userDoc = doc(db, cloudRef, id)
-        const desertRef = ref(storage, `${cloudRef}/${imageName}`);
-        await deleteDoc(userDoc)
-        await deleteObject(desertRef)
+        await deleteDoc(doc(db, cloudRef?.toString(), id?.toString()))
+        await deleteObject(ref(storage, `${cloudRef}/${imgUrl[1]}`))
         dispatch(delModal())
         setVisible(false)
         toast("Wow so easy!")
     }
+
 
 
     return (

@@ -8,25 +8,21 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { useDispatch } from 'react-redux';
 import { setImageUrl } from '../../store/slices/form/formSlice';
 
-export const CustomDropzone = () => {
+export const CustomDropzone = ({ dbHref }) => {
     const [droppedData, setDroppedData] = useState();
     const dispatch = useDispatch();
-
     const uploadImg = (files) => {
         if (files) {
             setDroppedData((files[0]))
-
-
-            const storageRef = ref(storage, `/restaurants/${files[0]?.path}`);
+            const storageRef = ref(storage, `/${dbHref}/${files[0]?.path}`);
             const uploadImg = uploadBytesResumable(storageRef, files[0]);
-
             uploadImg.on("state_changed", (snapshot) => {
                 // const prog = Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             },
                 (error) => console.log(error),
                 () => {
                     getDownloadURL(uploadImg.snapshot.ref).then((url) => {
-                        dispatch(setImageUrl(url))
+                        dispatch(setImageUrl([url, files[0]?.name]))
                     }
                     )
                 })

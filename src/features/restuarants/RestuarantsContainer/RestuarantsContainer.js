@@ -6,6 +6,8 @@ import { RestuarantsContainerStyled } from './RestuarantsContainer.Styled'
 import { db } from '../../../config/firebase-config'
 import { collection, query, orderBy, onSnapshot, } from 'firebase/firestore'
 import { getRestaurants, reffing } from '../../../store/slices/restaurants/resSlice'
+
+
 export const RestuarantsContainer = () => {
 
     const { restaurants } = useSelector((state) => state.restaurants)
@@ -65,7 +67,6 @@ export const RestuarantsContainer = () => {
     return (
         <RestuarantsContainerStyled>
             <RestaurantsCard apisProp={currentPosts} />
-
             <Paginations postsPerPage={dif} page={page} handleChange={handleChange} />
         </RestuarantsContainerStyled >
     )

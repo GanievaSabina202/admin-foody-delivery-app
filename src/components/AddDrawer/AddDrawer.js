@@ -5,14 +5,18 @@ import { AddDrawerStyled } from './AddDrawer.Styled';
 import { CustomDropzone } from '../Dropzone/DropzoneInput'
 import CustomInputGroup from './components/inputs';
 import { removeImgUrl } from '../../store/slices/form/formSlice';
+import CategoryInputsGroup from './components/category'
+import OffersInputsGroup from './components/offers';
 
-export const AddDrawer = ({ children }) => {
+export const AddDrawer = ({ config: { name, title, inputType, } }) => {
     const dispatch = useDispatch();
     const { addDrawerStatus } = useSelector(props => props.drawer);
     const closing = () => {
         dispatch(addDrawer())
         dispatch(removeImgUrl())
     }
+
+
     return (
         <>
 
@@ -21,7 +25,7 @@ export const AddDrawer = ({ children }) => {
                 position="right"
                 opened={addDrawerStatus}
                 onClose={() => closing()}
-                title="Add restaurant"
+                title={title}
                 padding="xl"
                 size={948}
                 classNames={{
@@ -35,15 +39,18 @@ export const AddDrawer = ({ children }) => {
             >
 
                 <div className='drop-zone-box'>
-                    <p>Upload your restaurants image</p>
-                    <CustomDropzone />
+                    <p>Upload your {name} image</p>
+
+                    <CustomDropzone dbHref={name} />
                 </div>
 
                 <div className="form-box">
                     <p>
-                        Add your Restuarants information
+                        Add your {name} information
                     </p>
-                    <CustomInputGroup />
+                    {inputType === 'restaurants' && <CustomInputGroup />}
+                    {inputType === 'category' && <CategoryInputsGroup />}
+                    {inputType === 'offers' && <OffersInputsGroup />}
                 </div>
             </AddDrawerStyled>
         </>

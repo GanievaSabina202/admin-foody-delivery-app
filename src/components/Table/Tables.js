@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { Table, TableBody, TableCell, Paper, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material';
-// import { Delete } from '../Delete/Delete';
+import { Table, TableCell, Paper, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material';
+import { categorySchema, offerSchema, ordersSchema } from './rowshema';
+import { CategoryTableBody, OffersTableBody, OrdersTableBody } from './tableBodyCustom';
 
-export const Tables = ({ rows, handler, ModalDesc, ModalTitle }) => {
+export const Tables = ({ rows, orderPage }) => {
 
-    const [columns, setColumns] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [rowHead, setRowHead] = React.useState([])
+
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -16,16 +18,27 @@ export const Tables = ({ rows, handler, ModalDesc, ModalTitle }) => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
+
+    const switching = () => {
+        switch (orderPage) {
+            case 'category':
+                return setRowHead(categorySchema)
+
+
+            case 'orders':
+                return setRowHead(ordersSchema)
+
+
+            case 'offers':
+                return setRowHead(offerSchema)
+            default: <></>
+
+        }
+    }
+
     useEffect(() => {
-        rows.length && setColumns(Object.keys((rows[0])).map((key) => {
-            return {
-                id: key,
-                label: key,
-                align: 'center',
-                minWidth: 130,
-            }
-        }))
-    }, [rows])
+        switching();
+    })
 
     return (
         <>
@@ -33,45 +46,20 @@ export const Tables = ({ rows, handler, ModalDesc, ModalTitle }) => {
                 <>
                     <ToastContainer />
                     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-                        <TableContainer sx={{ maxHeight: 440 }}>
-                            <Table stickyHeader aria-label="sticky table">
+                        <TableContainer sx={{ maxHeight: 440 }} >
+                            <Table stickyHeader aria-label="sticky table" style={{ width: '100%' }}>
                                 <TableHead>
                                     <TableRow>
-                                        {columns?.map((column) => (
-                                            <TableCell
-                                                key={column.id}
-                                                align={column.align}
-                                                style={{ minWidth: column.minWidth }}
-                                            >
-                                                {column.label}
-                                            </TableCell>
-                                        ))}
+                                        {
+                                            rowHead.map((i, index) => (
+                                                <TableCell key={index}>{i}</TableCell>
+                                            ))
+                                        }
                                     </TableRow>
                                 </TableHead>
-
-                                <TableBody>
-                                    {rows
-                                        ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                        ?.map((row) => {
-                                            return (
-                                                <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
-                                                    {columns?.map((column) => {
-                                                        const value = row[column.id];
-                                                        return (
-                                                            <TableCell key={column.id} align={column.align}>
-                                                                {column.id === 'url'
-                                                                    ? <img width="45" alt='' height="45" src={value} />
-                                                                    : value.length > 30 ? `${value.slice(0, 30)}...` : value}
-                                                            </TableCell>
-                                                        );
-                                                    })}
-                                                    <TableCell>
-                                                        {/* <Delete handler={() => handler(row.id)} ModalTitle={ModalTitle} ModalDesc={ModalDesc} /> */}
-                                                    </TableCell>
-                                                </TableRow>
-                                            );
-                                        })}
-                                </TableBody>
+                                {orderPage === 'category' && <CategoryTableBody rows={rows} />}
+                                {orderPage === 'orders' && <OrdersTableBody rows={rows} />}
+                                {orderPage === 'offers' && <OffersTableBody rows={rows} />}
                             </Table>
                         </TableContainer>
                         <TablePagination

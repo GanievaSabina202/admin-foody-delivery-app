@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addDrawer } from '../../store/slices/drawer/drawerSlices';
 
 
-const AddButton = () => {
+const AddButton = ({ children }) => {
 
     const dispatch = useDispatch()
 
@@ -14,10 +14,8 @@ const AddButton = () => {
 
         <AddButtonStyled onClick={() => dispatch(addDrawer())}>
             <PlusIcon />
-            ADD RESTAURANTS
+            {children}
         </AddButtonStyled>
-
-
     )
 }
 

@@ -26,6 +26,7 @@ justify-content:space-between;
 
         h2{
             margin-top:0.4rem;
+            margin-left:0rem;
         }
     }
 `

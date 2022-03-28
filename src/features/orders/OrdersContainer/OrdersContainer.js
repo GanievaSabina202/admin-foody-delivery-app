@@ -1,23 +1,23 @@
-import React, { useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchOrders } from '../../../store/slices/orders/orderSlice';
+import React, { useEffect, useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { fetchOrders } from '../../../store/slices/orders/orderSlice';
 import { OrdersTable } from '../OrdersTable/OrdersTable';
+import { collection, query, orderBy, onSnapshot, } from 'firebase/firestore'
+import { db } from '../../../config/firebase-config';
 
 export const OrdersContainer = () => {
-    const dispatch = useDispatch();
-    const { orders } = useSelector(state => state.orders)
-
-    const getAllData = useCallback(async () => {
-        orders.length < 1 && dispatch(fetchOrders())
-    }, [dispatch, orders.length])
+    const [orderStateData, setOrderStateData] = useState([]);
 
     useEffect(() => {
-        getAllData();
-    }, [getAllData]);
+        const restuarantsCollectionRef = query(collection(db, "orders"), orderBy('id', 'desc'));
+        onSnapshot(restuarantsCollectionRef, (snapshot) => {
+            setOrderStateData(snapshot.docs.map((doc) => ({ ...doc.data(), uid: doc.id })))
+        })
+    }, []);
 
     return (
         <>
-            <OrdersTable />
+            <OrdersTable orderStateData={orderStateData} />
         </>
     );
 };
