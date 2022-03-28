@@ -20,11 +20,41 @@ export const PageHeaderComponent = () => {
         case ('/panel/restaurants'):
             return (
                 <RestuarantsDiv>
-                    <AddDrawer />
+                    <AddDrawer config={{ name: 'restaurants', title: 'Add restaurants', inputType: 'restaurants' }} />
                     <h2>Restaurants</h2>
                     <RestuarantsButtonsDiv>
                         <RestaurantsHeader />
-                        <AddButton />
+                        <AddButton>ADD RESTAURANTS</AddButton>
+                    </RestuarantsButtonsDiv>
+                </RestuarantsDiv>
+            )
+        case ('/panel/category'):
+            return (
+                <RestuarantsDiv>
+                    <AddDrawer config={{ name: 'category', title: 'Add category', inputType: 'category' }} />
+                    <h2>Category</h2>
+                    <RestuarantsButtonsDiv>
+                        <AddButton>ADD CATEGORY</AddButton>
+                    </RestuarantsButtonsDiv>
+                </RestuarantsDiv>
+            )
+        case ('/panel/orders'):
+            return (
+                <RestuarantsDiv>
+                    {/* <AddDrawer config={{ name: 'order', title: 'Add category', inputType: 'category' }} /> */}
+                    <h2>Orders</h2>
+                    <RestuarantsButtonsDiv>
+                        {/* <AddButton>ADD CATEGORY</AddButton> */}
+                    </RestuarantsButtonsDiv>
+                </RestuarantsDiv>
+            )
+        case ('/panel/offers'):
+            return (
+                <RestuarantsDiv>
+                    <AddDrawer config={{ name: 'offers', title: 'Add offer', inputType: 'offers' }} />
+                    <h2>Offer</h2>
+                    <RestuarantsButtonsDiv>
+                        <AddButton>ADD OFFER</AddButton>
                     </RestuarantsButtonsDiv>
                 </RestuarantsDiv>
             )

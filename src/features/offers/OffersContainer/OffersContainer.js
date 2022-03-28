@@ -1,25 +1,22 @@
-import React, { useEffect } from 'react';
+import { collection, onSnapshot, orderBy, query } from '@firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { db } from '../../../config/firebase-config';
 import { OffersTable } from '../OffersTable/OffersTable';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchOffers } from '../../../store/slices/offers/offersSlice';
 
 export const OffersContainer = () => {
-
-    const dispatch = useDispatch();
-    const { offers } = useSelector(state => state.offers)
-
-    const getAllData = () => {
-        offers.length < 1 && dispatch(fetchOffers())
-    }
+    const [offerStateData, setOfferStateData] = useState([]);
 
     useEffect(() => {
-        getAllData();
+        const restuarantsCollectionRef = query(collection(db, "offers"), orderBy('id', 'desc'));
+        onSnapshot(restuarantsCollectionRef, (snapshot) => {
+            setOfferStateData(snapshot.docs.map((doc) => ({ ...doc.data(), uid: doc.id })))
+        })
     }, []);
 
 
     return (
         <>
-            <OffersTable />
+            <OffersTable offerStateData={offerStateData} />
         </>
     );
 };
