@@ -33,7 +33,7 @@ const CustomInputGroup = () => {
     const form = useForm({
         initialValues: {
             name: '',
-            price: '',
+            deliverPrice: '',
             cuisine: [],
             deliverMin: '',
             address: '',
@@ -44,7 +44,7 @@ const CustomInputGroup = () => {
 
         validate: {
             name: (value) => (value?.length < 2 ? 'Name must have at least 2 letters' : null),
-            price: (value) => (/^\d*(\.\d+)?$/.test(value) ? null : 'Invalid price'),
+            deliverPrice: (value) => (/^\d*(\.\d+)?$/.test(value) ? null : 'Invalid price'),
             cuisine: (value) => (value?.length < 1 ? 'Cuisine must have at least one items' : null),
             deliverMin: (value) => (/^\d*(\.\d+)?$/.test(value) ? null : 'Invalid minutes'),
             address: (value) => (value?.length < 2 ? 'Name must have at least 2 letters' : null),
@@ -89,7 +89,7 @@ const CustomInputGroup = () => {
                     label="Delivery Price $"
                     hideControls
                     required
-                    {...form.getInputProps('price')}
+                    {...form.getInputProps('deliverPrice')}
                 />
                 <NumberInput
                     hideControls

@@ -1,9 +1,8 @@
 import React from 'react'
 import { AddDrawer } from '../AddDrawer/AddDrawer';
-// import styled from 'styled-components'
 import AddButton from '../Buttons/addButton';
 import RestaurantsHeader from './HeaderVercions/restaurants';
-import { Div, RestuarantsButtonsDiv, RestuarantsDiv } from './PageHeader.Styled';
+import { RestuarantsButtonsDiv, RestuarantsDiv } from './PageHeader.Styled';
 
 export const PageHeaderComponent = () => {
 
@@ -12,9 +11,14 @@ export const PageHeaderComponent = () => {
 
         case ('/panel/products'):
             return (
-                <Div>
-                    <h2>Products</h2>
-                </Div>
+                <RestuarantsDiv>
+                    <AddDrawer config={{ name: 'products', title: 'Add products', inputType: 'products' }} />
+                    <h2>PRODUCTS</h2>
+                    <RestuarantsButtonsDiv>
+                        <RestaurantsHeader />
+                        <AddButton>ADD PRODUCT</AddButton>
+                    </RestuarantsButtonsDiv>
+                </RestuarantsDiv>
             )
 
         case ('/panel/restaurants'):

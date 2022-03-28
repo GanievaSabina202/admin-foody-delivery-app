@@ -30,13 +30,6 @@ export const RestuarantsContainer = () => {
 
     useEffect(() => {
 
-        // const getData = async () => {
-        //     const data = await getDocs(restuarantsCollectionRef)
-        //     dispatch(getRestaurants(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))))
-        //     dispatch(reffing(data.docs[data.docs.length - 1]))
-        // }
-        // getData();
-
         const restuarantsCollectionRef = query(collection(db, "restaurants"), orderBy('uniqueId', 'desc'));
         onSnapshot(restuarantsCollectionRef, (snapshot) => {
             dispatch(getRestaurants(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))))
