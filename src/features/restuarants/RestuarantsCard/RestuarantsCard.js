@@ -16,6 +16,7 @@ export const RestaurantsCard = ({ apisProp }) => {
     const [delData, setDeledata] = useState({})
 
     const collector = (id, imgUrl) => {
+        console.log(id)
         dispatch(delModal())
         setDeledata({ id, imgUrl, cloudRef })
     }

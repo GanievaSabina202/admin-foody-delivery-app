@@ -6,7 +6,7 @@ import upsvg from './uplad.svg'
 import { CustomDropzoneStyled } from './Dropzone.Styled';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { useDispatch } from 'react-redux';
-import { setImageUrl } from '../../store/slices/form/formSlice';
+import { setError, setImageUrl } from '../../store/slices/form/formSlice';
 
 export const CustomDropzone = ({ dbHref }) => {
     const [droppedData, setDroppedData] = useState();
@@ -19,7 +19,7 @@ export const CustomDropzone = ({ dbHref }) => {
             uploadImg.on("state_changed", (snapshot) => {
                 // const prog = Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             },
-                (error) => console.log(error),
+                (error) => dispatch(setError(error)),
                 () => {
                     getDownloadURL(uploadImg.snapshot.ref).then((url) => {
                         dispatch(setImageUrl([url, files[0]?.name]))

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { TextInput, Button, Group, Textarea, NumberInput, NativeSelect } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { arrayUnion, collection, doc, getDocs, query, updateDoc, where } from '@firebase/firestore';
+import { addDoc, collection, getDocs, query } from '@firebase/firestore';
 import { db } from '../../../../config/firebase-config';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDrawer } from '../../../../store/slices/drawer/drawerSlices';
@@ -15,7 +15,7 @@ const ProductsInputsGroup = () => {
     const [visible, setVisible] = useState(false);
     const { imgUrl } = useSelector(props => props.img);
     const [res, setRes] = useState([])
-
+    const productsCollectionRef = collection(db, "products");
 
     useEffect(() => {
         const categoryRef = query(collection(db, "restaurants"));
@@ -31,7 +31,7 @@ const ProductsInputsGroup = () => {
         initialValues: {
             name: '',
             price: '',
-            belongRes: '',
+            belongRestaurant: '',
             description: '',
             productId: Date.now()
         },
@@ -44,20 +44,27 @@ const ProductsInputsGroup = () => {
     });
 
     const createRes = async (catData) => {
+        // setVisible(true)
+        // const allDataWithImg = { ...catData, imgUrl }
+        // const findQuery = query(collection(db, "restaurants"), where("name", "==", `${allDataWithImg.belongRes}`));
+        // const querySnapshot = await getDocs(findQuery);
+        // querySnapshot.forEach(async ({ id }) => {
+        //     const sfRef = doc(db, "restaurants", id);
+        //     await updateDoc(sfRef, {
+        //         products: arrayUnion({ ...allDataWithImg })
+        //     }, { merge: true });
+
+        //     dispatch(removeImgUrl())
+        //     dispatch(addDrawer());
+        //     setVisible(false)
+        // });
+
         setVisible(true)
         const allDataWithImg = { ...catData, imgUrl }
-        const findQuery = query(collection(db, "restaurants"), where("name", "==", `${allDataWithImg.belongRes}`));
-        const querySnapshot = await getDocs(findQuery);
-        querySnapshot.forEach(async ({ id }) => {
-            const sfRef = doc(db, "restaurants", id);
-            await updateDoc(sfRef, {
-                products: arrayUnion({ ...allDataWithImg })
-            }, { merge: true });
-
-            dispatch(removeImgUrl())
-            dispatch(addDrawer());
-            setVisible(false)
-        });
+        await addDoc(productsCollectionRef, allDataWithImg)
+        dispatch(addDrawer());
+        dispatch(removeImgUrl())
+        setVisible(false)
     }
 
 
@@ -94,7 +101,7 @@ const ProductsInputsGroup = () => {
                     size="md"
                     className='nativeSelect-inp'
                     required
-                    {...form.getInputProps('belongRes')}
+                    {...form.getInputProps('belongRestaurant')}
                 />
                 <Group mt="md" className="button-group">
                     <Button onClick={() => dispatch(addDrawer())}>Cancel</Button>

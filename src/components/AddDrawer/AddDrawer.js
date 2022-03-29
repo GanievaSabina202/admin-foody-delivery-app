@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { AddDrawerStyled } from './AddDrawer.Styled';
 import { CustomDropzone } from '../Dropzone/DropzoneInput'
 import CustomInputGroup from './components/inputs';
-import { removeImgUrl } from '../../store/slices/form/formSlice';
+import { removeImgUrl, setError } from '../../store/slices/form/formSlice';
 import CategoryInputsGroup from './components/category'
 import OffersInputsGroup from './components/offers';
 import ProductsInputsGroup from './components/products';
@@ -12,9 +12,11 @@ import ProductsInputsGroup from './components/products';
 export const AddDrawer = ({ config: { name, title, inputType, } }) => {
     const dispatch = useDispatch();
     const { addDrawerStatus } = useSelector(props => props.drawer);
+    const { error } = useSelector(props => props.img);
     const closing = () => {
         dispatch(addDrawer())
         dispatch(removeImgUrl())
+        dispatch(setError(null))
     }
 
 
@@ -43,6 +45,7 @@ export const AddDrawer = ({ config: { name, title, inputType, } }) => {
                     <p>Upload your {name} image</p>
 
                     <CustomDropzone dbHref={name} />
+                    {error && <p>Sekli yeniden yukleyin nese xeta bas verdi</p>}
                 </div>
 
                 <div className="form-box">
