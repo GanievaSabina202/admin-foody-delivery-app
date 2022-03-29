@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { TextInput, Button, Group, Textarea, NumberInput, NativeSelect } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { arrayUnion, collection, doc, getDocs, query, updateDoc } from '@firebase/firestore';
+import { arrayUnion, collection, doc, getDocs, query, updateDoc, where } from '@firebase/firestore';
 import { db } from '../../../../config/firebase-config';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDrawer } from '../../../../store/slices/drawer/drawerSlices';
@@ -32,7 +32,8 @@ const ProductsInputsGroup = () => {
             name: '',
             price: '',
             belongRes: '',
-            description: ''
+            description: '',
+            productId: Date.now()
         },
 
         validate: {
@@ -45,13 +46,18 @@ const ProductsInputsGroup = () => {
     const createRes = async (catData) => {
         setVisible(true)
         const allDataWithImg = { ...catData, imgUrl }
-        const sfRef = doc(db, "restaurants", "4zXnKV2twGOOxA4puhKw");
-        await updateDoc(sfRef, {
-            products: arrayUnion({ id: Date.now(), data: allDataWithImg })
-        }, { merge: true });
-        dispatch(addDrawer());
-        dispatch(removeImgUrl())
-        setVisible(false)
+        const findQuery = query(collection(db, "restaurants"), where("name", "==", `${allDataWithImg.belongRes}`));
+        const querySnapshot = await getDocs(findQuery);
+        querySnapshot.forEach(async ({ id }) => {
+            const sfRef = doc(db, "restaurants", id);
+            await updateDoc(sfRef, {
+                products: arrayUnion({ ...allDataWithImg })
+            }, { merge: true });
+
+            dispatch(removeImgUrl())
+            dispatch(addDrawer());
+            setVisible(false)
+        });
     }
 
 
@@ -88,7 +94,7 @@ const ProductsInputsGroup = () => {
                     size="md"
                     className='nativeSelect-inp'
                     required
-                    {...form.getInputProps('restaurants')}
+                    {...form.getInputProps('belongRes')}
                 />
                 <Group mt="md" className="button-group">
                     <Button onClick={() => dispatch(addDrawer())}>Cancel</Button>
