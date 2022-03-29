@@ -23,11 +23,6 @@ export const RestuarantsContainer = () => {
         setPage(value);
     };
 
-
-    // const unsub = onSnapshot(doc(db, "restaurants", "uniqueId"), (doc) => {
-    //     console.log("Current data: ", doc.data());
-    // });
-
     useEffect(() => {
 
         const restuarantsCollectionRef = query(collection(db, "restaurants"), orderBy('uniqueId', 'desc'));
@@ -37,24 +32,6 @@ export const RestuarantsContainer = () => {
         })
 
     }, [dispatch]);
-
-
-    // const azee = async () => {
-    //     const next = await query(collection(db, "restaurants"),
-    //         orderBy("uniqueId", 'asc'),
-    //         startAfter(doc),
-    //         limit(5));
-
-    //     const azzz = await getDocs(next)
-    //     dispatch(setPagination(azzz.docs.map((doc) => ({ ...doc.data(), id: doc.id }))))
-    //     dispatch(reffing(azzz.docs[azzz.docs.length - 1]))
-    // }
-
-    // const find = async () => {
-    //     const q = query(citiesRef, where("name", "==", "xxx"));
-    //     const mn = await getDocs(q);
-    //     console.log((mn.docs.map((doc) => ({ ...doc.data(), id: doc.id }))));
-    // }
 
 
     return (

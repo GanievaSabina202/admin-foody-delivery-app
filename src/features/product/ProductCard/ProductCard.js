@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Styled from './ProductCard.styled'
 // import { useDispatch } from 'react-redux';
 // import { removeProduct } from '../../../store/slices/product/productSlice';
@@ -6,8 +6,20 @@ import * as Styled from './ProductCard.styled'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from "styled-components"
+import { DeleteModal } from '../../../components/Modal/Modal';
+import { useDispatch } from 'react-redux';
+import { delModal } from '../../../store/slices/drawer/drawerSlices';
 
 export const ProductCard = ({ ProductSelector }) => {
+    const cloudRef = 'products'
+    const dispatch = useDispatch()
+    const [delData, setDeledata] = useState({})
+
+    const collector = (id, imgUrl) => {
+        console.log(id)
+        dispatch(delModal())
+        setDeledata({ id, imgUrl, cloudRef })
+    }
 
     return (
         <>
@@ -15,30 +27,29 @@ export const ProductCard = ({ ProductSelector }) => {
             <DivStyledProduct>
                 <Styled.StackWrap>
                     {
-                        ProductSelector.map(e => Object.values(e).map(item => (
-
-                            <Styled.CardWrapper key={item.productId}>
+                        ProductSelector.map(({ name, productId, uid, belongRestaurant, imgUrl, price }) => (
+                            <Styled.CardWrapper key={productId}>
                                 {
-                                    item.imgUrl[0] ? <Styled.ImgWrapper src={item?.imgUrl[0]} /> : <Styled.ImgWrapper src={'https://skillz4kidzmartialarts.com/wp-content/uploads/2017/04/default-image-620x600.jpg'} />
+                                    !imgUrl.length < 1 ? <Styled.ImgWrapper src={imgUrl[0]} /> : <Styled.ImgWrapper src={'https://skillz4kidzmartialarts.com/wp-content/uploads/2017/04/default-image-620x600.jpg'} />
                                 }
-
+                                <DeleteModal dataForDelete={delData} />
                                 <Styled.ContentWrapper>
                                     <Styled.Title>
-                                        {item.name}
+                                        {name}
                                     </Styled.Title>
                                     <Styled.SubTitle>
-                                        {item.belongRes}
+                                        {belongRestaurant}
                                     </Styled.SubTitle>
                                 </Styled.ContentWrapper>
 
                                 <Styled.ContentAction>
                                     <Styled.Price>
-                                        ${item.price}
+                                        ${price}
                                     </Styled.Price>
-                                    {/* <Delete handler={() => handler(i.id)} ModalTitle={ModalTitle} ModalDesc={ModalDesc} /> */}
+                                    <Styled.Bin onClick={() => collector(uid, imgUrl)} />
                                 </Styled.ContentAction>
                             </Styled.CardWrapper>
-                        )))
+                        ))
                     }
 
                 </Styled.StackWrap>

@@ -17,8 +17,8 @@ export const DeleteModal = ({ dataForDelete }) => {
         setVisible(true)
         await deleteDoc(doc(db, cloudRef?.toString(), id?.toString()))
         await deleteObject(ref(storage, `${cloudRef}/${imgUrl[1]}`))
-        dispatch(delModal())
         setVisible(false)
+        dispatch(delModal())
         toast("Wow so easy!")
     }
 
@@ -33,7 +33,7 @@ export const DeleteModal = ({ dataForDelete }) => {
                 overlayOpacity={0.1}
                 centered
             >
-                <LoadingOverlay visible={visible} />
+                <LoadingOverlay visible={visible} transitionDuration={500} />
                 <ModalTitle>Are you sure it’s deleted ? </ModalTitle>
                 <ModalDesc>Attention! If you delete this PRODUCTS, it will not come back...</ModalDesc>
                 <ButtonWrapper>
