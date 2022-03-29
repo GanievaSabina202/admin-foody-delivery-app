@@ -14,7 +14,7 @@ export const ProductContainer = () => {
 
 
     const [page, setPage] = useState(1);
-    const postsPerPage = Math.ceil(ProductSelector.length / 1.6);
+    const postsPerPage = Math.ceil(ProductSelector.length / 2.3);
     const dif = Math.ceil(ProductSelector.length / 10)
     const indexOfLastPost = page * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
