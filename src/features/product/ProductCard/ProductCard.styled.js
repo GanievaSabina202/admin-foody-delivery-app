@@ -30,6 +30,8 @@ export const ImgWrapper = styled.img`
     height: 158px;
     width: 160px;
     object-fit: cover;
+    border-radius:5px;
+   
 `
 export const ContentWrapper = styled.div`
 width: 100%;
@@ -39,6 +41,10 @@ export const Title = styled(Typography).attrs(() => ({
     component: "div"
 }))`
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
     font-size: 18px;
     line-height: 24px;
     color:  ${({ theme }) => theme.colors.darkBlue_1};
