@@ -14,8 +14,8 @@ export const ProductContainer = () => {
 
 
     const [page, setPage] = useState(1);
-    const postsPerPage = Math.ceil(ProductSelector.length / 2.3);
-    const dif = Math.ceil(ProductSelector.length / 10)
+    const postsPerPage = Math.ceil(10);
+    const last_page = Math.ceil(ProductSelector.length / postsPerPage)
     const indexOfLastPost = page * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = ProductSelector.slice(indexOfFirstPost, indexOfLastPost)
@@ -37,7 +37,7 @@ export const ProductContainer = () => {
     return (
         <>
             <ProductCard ProductSelector={currentPosts} />
-            <Paginations postsPerPage={dif} page={page} handleChange={handleChange} />
+            <Paginations postsPerPage={last_page} page={page} handleChange={handleChange} />
         </>
     );
 };
