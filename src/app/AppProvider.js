@@ -10,22 +10,29 @@ import { ThemeProvider } from "styled-components";
 import { theme } from '../assets/styles/theme'
 import { Provider } from 'react-redux'
 import { store } from '../store'
+// import { Route } from 'react-router-dom'
+import Login from '../pages/login'
+import { useAuth } from '../context/AuthContext'
 
 export const AppProvider = ({ children }) => {
+    const { user } = useAuth()
     return (
         <Provider store={store}>
             <Router>
                 <ThemeProvider theme={theme}>
                     <GlobalStyle />
-                    <Container>
-                        <Navbar />
-                        <AppDiv>
-                            <Sidebar />
-                            <RouteContainer>
-                                {children}
-                            </RouteContainer>
-                        </AppDiv>
-                    </Container>
+                    {!user && <Login />}
+                    {
+                        user && <Container>
+                            <Navbar />
+                            <AppDiv>
+                                <Sidebar />
+                                <RouteContainer>
+                                    {children}
+                                </RouteContainer>
+                            </AppDiv>
+                        </Container>
+                    }
                 </ThemeProvider>
             </Router>
         </Provider >

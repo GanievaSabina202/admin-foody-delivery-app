@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAuth } from '../../context/AuthContext';
 import { CATAGORY } from '../../util/routing';
 // import { Footer } from '../Footer/Footer';
 import { Div, Li, LinkStyled, UL } from './Sidebar.styled';
@@ -7,7 +8,7 @@ export const Sidebar = () => {
     const { CHILD } = CATAGORY.MAIN.PANEL;
     const { LOGOUT } = CATAGORY.MAIN;
     // const location = window.location.pathname;
-
+    const { logout } = useAuth()
     return (
         <Div className="CutomSlideBar">
             <UL>
@@ -61,7 +62,7 @@ export const Sidebar = () => {
                 </Li>
                 <Li>
                     {
-                        <LinkStyled to={LOGOUT.HREF}>
+                        <LinkStyled to={LOGOUT.HREF} onClick={logout}>
                             <span>{LOGOUT.ICON}</span>
                             <h2>{LOGOUT.NAME}</h2>
                         </LinkStyled>

@@ -30,7 +30,6 @@ export const ProductContainer = () => {
             dispatch(getData(snapshot.docs.map((doc) => ({ ...doc.data(), uid: doc.id }))))
             dispatch(reffingProduct(snapshot.docs[snapshot.docs.length - 1]))
         })
-
     }, [dispatch]);
 
 
