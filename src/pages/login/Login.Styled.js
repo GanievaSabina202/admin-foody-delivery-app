@@ -5,6 +5,16 @@ display: flex;
 align-items: center;
 justify-content: center;
 height: 100vh;
+
+@media(max-width:991.9px){
+        align-items:flex-start !important;
+        margin-top:5rem;
+    }
+    
+
+   label{
+       color:#fff;
+   }
 `
 
 
@@ -15,6 +25,10 @@ justify-content: center;
 
     @media(max-width:991.9px){
         flex-direction: column-reverse;
+    }
+
+    @media(max-width:991.9px){
+        justify-content:flex-end !important;
     }
 `
 
@@ -27,14 +41,14 @@ height: 411px;
 background-color:white;
 padding: 40px;
 
+
 display: flex;
 align-items: center;
 justify-content: center;
 
 @media(max-width:991.9px){  
-        width: fit-content; 
-        height: auto;
-        background-color: transparent;
+width: 174px;
+height: 153.01px;
     }
 `
 
