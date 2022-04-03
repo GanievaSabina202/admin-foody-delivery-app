@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import svg from '../../assets/images/login.svg'
 // import { LoginComponentStyled } from './Login.Styled';
 // import { useAuth } from '../../../src/context/AuthContext';
 // import { EnvelopeClosedIcon, LockClosedIcon } from '@modulz/radix-icons';
@@ -11,7 +12,6 @@ import {
     LoadingOverlay,
 } from '@mantine/core';
 import { useAuth } from '../../context/AuthContext';
-
 import {
     LoginWrapper,
     InputWrappers,
@@ -106,17 +106,12 @@ export const Login = () => {
                     </InputWrappers>
 
                     <ImgWrapper>
-                        <img src='' />
-                        aaaaaaaaaaaaaaaaaaa
+                        <img src={svg} alt='login-imag' />
                     </ImgWrapper>
 
                 </Wraps>
 
             </LoginWrapper>
-
-
-
-
         </>
     )
 }
