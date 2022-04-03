@@ -13,7 +13,7 @@ align-items:center;
 
 
 export const ImageStyled = styled.img`
-object-fit: contain;
+object-fit: cover;
 width:64px;
 height:57px;
 `
