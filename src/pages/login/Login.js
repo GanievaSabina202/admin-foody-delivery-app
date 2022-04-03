@@ -12,6 +12,16 @@ import {
 } from '@mantine/core';
 import { useAuth } from '../../context/AuthContext';
 
+import {
+    LoginWrapper,
+    InputWrappers,
+    TitleWrap,
+    Wraps,
+    Inputss,
+    ImgWrapper
+} from './Login.Styled';
+
+
 export const Login = () => {
     const { login, loginError } = useAuth();
     const [systemService, setSystemService] = useState({
@@ -50,44 +60,63 @@ export const Login = () => {
     };
 
     return (
-        <div
-            style={{
-                margin: '5.6rem 1.8rem 0 1.8rem',
-                position: 'relative',
-            }}>
-            <form onSubmit={form.onSubmit(handleSubmit)}>
-                <LoadingOverlay visible={systemService.loading} />
-                <TextInput
-                    size="lg"
-                    mt="md"
-                    required
-                    placeholder="Your email"
-                    label="Email"
-                    // icon={<EnvelopeClosedIcon />}
-                    {...form.getInputProps('email')}
-                />
+        <>
 
-                <PasswordInput
-                    mt="md"
-                    size="lg"
-                    required
-                    placeholder="Password"
-                    label="Password"
-                    // icon={<LockClosedIcon />}
-                    {...form.getInputProps('password')}
-                />
+            <LoginWrapper>
+                <Wraps>
+                    <InputWrappers>
+                        <TitleWrap>Welcome Admin</TitleWrap>
+                        <Inputss>
+                            <form onSubmit={form.onSubmit(handleSubmit)}>
+                                <LoadingOverlay visible={systemService.loading} />
+
+                                <TextInput
+                                    size="lg"
+                                    mt="md"
+                                    required
+                                    placeholder="Your email"
+                                    label="Email"
+                                    // icon={<EnvelopeClosedIcon />}
+                                    {...form.getInputProps('email')}
+                                />
+
+                                <PasswordInput
+                                    mt="md"
+                                    size="lg"
+                                    required
+                                    placeholder="Password"
+                                    label="Password"
+                                    // icon={<LockClosedIcon />}
+                                    {...form.getInputProps('password')}
+                                />
 
 
-                {systemService.error || loginError && (
-                    <Text color="red" size="sm" mt="sm">
-                        {systemService.error}{loginError}
-                    </Text>
-                )}
+                                {systemService.error || loginError && (
+                                    <Text color="red" size="sm" mt="sm">
+                                        {systemService.error}{loginError}
+                                    </Text>
+                                )}
 
-                <Button type="submit" style={{ marginTop: 50 }} fullWidth size="lg">
-                    Login
-                </Button>
-            </form>
-        </div>
+                                <Button type="submit" style={{ marginTop: 50 }} fullWidth size="lg">
+                                    Login
+                                </Button>
+                            </form>
+                        </Inputss>
+
+                    </InputWrappers>
+
+                    <ImgWrapper>
+                        <img src='' />
+                        aaaaaaaaaaaaaaaaaaa
+                    </ImgWrapper>
+
+                </Wraps>
+
+            </LoginWrapper>
+
+
+
+
+        </>
     )
 }
