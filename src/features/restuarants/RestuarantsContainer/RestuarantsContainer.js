@@ -14,11 +14,11 @@ export const RestuarantsContainer = () => {
     const dispatch = useDispatch()
 
     const [page, setPage] = useState(1);
-    const postsPerPage = Math.ceil(restaurants.length / 2.9);
-    const dif = Math.ceil(restaurants.length / 16)
+    const postsPerPage = Math.ceil(16);
+    const last_page = Math.ceil(restaurants && restaurants?.length / postsPerPage)
     const indexOfLastPost = page * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = restaurants.slice(indexOfFirstPost, indexOfLastPost)
+    const currentPosts = restaurants?.slice(indexOfFirstPost, indexOfLastPost)
     const handleChange = (event, value) => {
         setPage(value);
     };
@@ -37,7 +37,7 @@ export const RestuarantsContainer = () => {
     return (
         <RestuarantsContainerStyled>
             <RestaurantsCard apisProp={currentPosts} />
-            <Paginations postsPerPage={dif} page={page} handleChange={handleChange} />
+            <Paginations postsPerPage={last_page} page={page} handleChange={handleChange} />
         </RestuarantsContainerStyled >
     )
 }
