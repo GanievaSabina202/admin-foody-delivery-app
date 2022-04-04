@@ -9,12 +9,11 @@ export const OrdersContainer = () => {
     const [orderStateData, setOrderStateData] = useState([]);
 
     useEffect(() => {
-        const restuarantsCollectionRef = query(collection(db, "orders"), orderBy('id', 'desc'));
+        const restuarantsCollectionRef = query(collection(db, "orders"), orderBy('key', 'desc'));
         onSnapshot(restuarantsCollectionRef, (snapshot) => {
             setOrderStateData(snapshot.docs.map((doc) => ({ ...doc.data(), uid: doc.id })))
         })
     }, []);
-
     return (
         <>
             <OrdersTable orderStateData={orderStateData} />

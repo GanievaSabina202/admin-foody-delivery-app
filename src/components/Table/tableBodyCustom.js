@@ -48,7 +48,6 @@ export const CategoryTableBody = ({ rows }) => {
 
 
 export const OrdersTableBody = ({ rows }) => {
-
     const dispatch = useDispatch()
     const [delData, setDeledata] = useState({})
     const cloudRef = 'orders'
@@ -65,32 +64,32 @@ export const OrdersTableBody = ({ rows }) => {
         <TableBody>
             <DeleteModal dataForDelete={delData} />
             {rows
-                ?.map(({ id, customerId, time, deliveryAddress, amount, paymentMethod, contact, uid }) => {
+                ?.map(({ key, uid, date, address, payment, number }) => {
                     return (
-                        <TableRow hover role="checkbox" tabIndex={-1} key={id}>
-                            <TableCell key={id}>
-                                {id}
+                        <TableRow hover role="checkbox" tabIndex={-1} key={key}>
+                            <TableCell>
+                                {key}
                             </TableCell>
-                            <TableCell key={customerId}>
-                                {customerId}
+                            <TableCell>
+                                {uid}
                             </TableCell>
-                            <TableCell key={id + 1}>
-                                {time}
+                            <TableCell>
+                                {date}
                             </TableCell>
-                            <TableCell key={id + 2}>
-                                {deliveryAddress}
+                            <TableCell>
+                                {address}
                             </TableCell>
-                            <TableCell key={id + 3}>
-                                {amount}
+                            <TableCell>
+                                12
                             </TableCell>
-                            <TableCell key={id + 4}>
-                                {paymentMethod}
+                            <TableCell>
+                                {payment}
                             </TableCell>
-                            <TableCell key={contact}>
-                                {contact}
+                            <TableCell>
+                                {number}
                             </TableCell>
-                            <TableCell key={uid}>
-                                <Bin onClick={() => collector(uid, null)} />
+                            <TableCell>
+                                <Bin onClick={() => console.log(uid)} />
                             </TableCell>
                         </TableRow>
                     );
